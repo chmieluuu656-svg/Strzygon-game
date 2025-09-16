@@ -6,52 +6,49 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
       margin: 0;
       padding: 0;
-      height: 200vh; /* sztucznie wydłużamy stronę, żeby było co scrollować */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      height: 200vh; 
     }
 
-    #first-text, #second-text {
+    #first-text {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       font-size: 2rem;
       font-weight: bold;
     }
 
     #second-text {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      font-weight: bold;
       display: none;
     }
 
-    /* Niewidoczny tekst */
     .hidden-text {
       display: none;
     }
   </style>
 </head>
 <body>
-  <!-- Pierwszy napis -->
   <div id="first-text">nie tym razem</div>
 
-  <!-- Drugi napis -->
   <div id="second-text">szukaj u źródła</div>
 
-  <!-- Niewidoczny napis w źródle -->
   <div class="hidden-text">pora na zakupy</div>
 
   <script>
-    // Po przewinięciu pokaż drugi napis, ukryj pierwszy
     window.addEventListener("scroll", function() {
-      const first = document.getElementById("first-text");
       const second = document.getElementById("second-text");
 
       if (window.scrollY > 100) {
-        first.style.display = "none";
         second.style.display = "block";
       } else {
-        first.style.display = "block";
         second.style.display = "none";
       }
     });
